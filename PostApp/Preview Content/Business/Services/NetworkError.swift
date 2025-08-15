@@ -1,27 +1,22 @@
-//
-//  NetworkError.swift
-//  PostApp
-//
-//  Created by Christiane Roth on 10.08.25.
-//
-
-
-// NetworkError.swift
 import Foundation
-enum NetworkError: Error, LocalizedError {
+enum RepositoryError: Error, LocalizedError {
     case invalidURL
-    case noData
-    case decodingError(Error)
-    case serverError(statusCode: Int) // Beispiel für Serverfehler
-    case unknownError(Error?) // Für alle anderen Fehler
-    
+    case networkError(Error)
+    case decodingError
+    case serverError(statusCode: Int)
+    case unknown(Error?)
     var errorDescription: String? {
         switch self {
-        case .invalidURL: return "Ungültige URL."
-        case .noData: return "Keine Daten empfangen."
-        case .decodingError(let error): return "Fehler beim Decodieren der Daten: \(error.localizedDescription)"
-        case .serverError(let statusCode): return "Serverfehler: Status Code \(statusCode)."
-        case .unknownError(let error): return "Ein unbekannter Fehler ist aufgetreten: \(error?.localizedDescription ?? "Keine Details")."
+        case .invalidURL:
+            return "Ungültige URL."
+        case .networkError(let error):
+            return "Netzwerkfehler: \(error.localizedDescription)"
+        case .decodingError:
+            return "Fehler beim Verarbeiten der Antwort."
+        case .serverError(let statusCode):
+            return "Serverfehler mit Statuscode \(statusCode)."
+        case .unknown(let error):
+            return "Ein unbekannter Fehler ist aufgetreten: \(error?.localizedDescription ?? "Keine Details")."
         }
     }
 }

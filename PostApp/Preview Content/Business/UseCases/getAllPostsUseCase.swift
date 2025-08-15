@@ -11,11 +11,11 @@ import Foundation
 import SwiftUI
 
 class GetAllPostsUseCase {
-    private let postRepository: PostRepositoryProtocol
-    init(postRepository: PostRepositoryProtocol) {
-        self.postRepository = postRepository
-    }
+    private let postRepository = PostRepository.shared
+   
+    
     func execute() async throws -> [Post] {
         return try await postRepository.getAllPosts()
     }
 }
+

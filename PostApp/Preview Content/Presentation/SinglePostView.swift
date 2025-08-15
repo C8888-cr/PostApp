@@ -14,24 +14,24 @@ struct SinglePostView: View {
     var body: some View {
    
             VStack(alignment: .leading, spacing: 8) {
-                Text(post.title ?? "")
+                Text(post.title)
                     .font(.headline)
                     .lineLimit(1)
                 
                 HStack {
-                    Text("Von User: \(post.userId ?? 0)")
+                    Text("Von User: \(post.userId)")
                         .font(.caption)
                         .foregroundColor(.secondary)
                     
                     Spacer()
                     
-                    Text("Post ID: \(post.id ?? 0)")
+                    Text("Post ID: \(post.id)")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }
                 
            
-                Text(post.body ?? "")
+                Text(post.body)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .lineLimit(2)
