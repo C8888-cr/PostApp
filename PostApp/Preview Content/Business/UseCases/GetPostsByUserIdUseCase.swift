@@ -9,11 +9,13 @@ import Foundation
 
 class GetPostsByUserIdUseCase {
 
+    static let shared = GetPostsByUserIdUseCase()
     private let postRepository = PostRepository.shared
  
-
+    private init() {}
+    
     func execute (userId: Int) async throws -> [Post] {
-        return try await postRepository.getPostsByUserId(userId: userId)
+        try await postRepository.getPostsByUserId(userId: userId)
     }
     }
         

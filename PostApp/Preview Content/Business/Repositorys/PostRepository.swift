@@ -41,4 +41,10 @@ class PostRepository {
             return
                 try await httpService.put(url, data: post)
     }
+    
+    func deletePost(id: Int) async throws -> Void {
+        let url = "\(baseURL)/posts/\(id)"
+            return
+                try await httpService.delete(url)
+    }
 }

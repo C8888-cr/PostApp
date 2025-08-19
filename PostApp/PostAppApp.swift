@@ -4,8 +4,8 @@ struct PostAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PostView()
-                .environmentObject(UseCaseProvider.shared)
+            PostView(viewModel: PostViewModel())
+             
               
         }
     }

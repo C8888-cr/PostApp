@@ -17,11 +17,13 @@ struct SinglePostView: View {
                 Text(post.title)
                     .font(.headline)
                     .lineLimit(1)
+                    .padding(.bottom, 16)
                 
                 HStack {
                     Text("Von User: \(post.userId)")
                         .font(.caption)
                         .foregroundColor(.secondary)
+                        .padding(.bottom, 4)
                     
                     Spacer()
                     
@@ -40,8 +42,10 @@ struct SinglePostView: View {
             .padding(.horizontal, 16)
             .background(Color.white.opacity(0.9))
             .cornerRadius(8)
-       
+            
+           
         }
+    
     }
 
 #Preview {
